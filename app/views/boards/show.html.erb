@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @board.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @board.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @board.image_url %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @board.category %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @board.level %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @board.user %>
+</p>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>
