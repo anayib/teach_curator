@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landing_page/home'
+
   devise_for :users
   
 
