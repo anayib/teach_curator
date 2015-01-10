@@ -39,10 +39,10 @@
     <%= f.fields_for :lessons, @board.lessons do |lesson| %>
       <% render 'lesson_fields', :l => lesson %>
     <% end %>
-    <%#= link_to_add_fields "Add_tip", f, :tips %>
-
+    <%= link_to_add_fields "Add lesson", f, :lessons %>
 
   </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

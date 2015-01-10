@@ -8,3 +8,9 @@ $(document).on "ready page:load", ->
     $(this).prev('input[type=hidden]').val('true')
     $(this).closest('fieldset').hide()
     $(this).closest('fieldset').hide()
+
+  $('form').on 'click', '.Add_lesson', (event) ->
+    event.preventDefault()
+    time = new Date().getTime()
+    regexp = new RegExp($(this).data('id'), 'g')
+    $(this).before($(this).data('fields').replace(regexp, time))
