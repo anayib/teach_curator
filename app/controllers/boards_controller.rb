@@ -15,7 +15,11 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
+
     @board = current_user.boards.build
+
+    2.times {@board.lessons.build}
+
   end
 
   # GET /boards/1/edit
@@ -71,6 +75,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :description, :image_url, :category, :level, :user_id)
+      params.require(:board).permit(:title, :description, :image_url, :category, :level, :user_id, lessons_attributes: [:id, :title, :description, :content_format, :_destroy, :board_id])
     end
 end
