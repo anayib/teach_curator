@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? %>
+  <li><%= current_user.username %></li>
+  <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+<!--   <li><%#= image_tag Gravatar.new(current_user.email).image_url if current_user%></li> -->
+  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to "Sign in", new_user_session_path %></li>
+  <li><%= link_to "Sign up", new_user_registration_path %></li>
+<% end %>
+
 <h1>Listing Boards</h1>
 
 <table>
@@ -23,10 +33,12 @@
         <td><%= board.image_url %></td>
         <td><%= board.category %></td>
         <td><%= board.level %></td>
-        <td><%= board.user %></td>
+        <td><%= "#{board.user.name} #{board.user.lastname}" %></td>
         <td><%= link_to 'Show', board %></td>
-        <td><%= link_to 'Edit', edit_board_path(board) %></td>
-        <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if board.user == current_user %>
+          <td><%= link_to 'Edit', edit_board_path(board) %></td>
+          <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

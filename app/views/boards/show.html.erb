@@ -27,7 +27,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @board.user %>
+  <%= "#{@board.user.name} #{@board.user.lastname}"%>
 </p>
 
 <%= link_to 'Edit', edit_board_path(@board) %> |
