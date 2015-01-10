@@ -4,7 +4,8 @@
   <%= l.label :description, "description" %>
   <%= l.text_field :description %>
   <%= l.label :content_format, "content_format" %>
-  <%= l.text_field :content_format %>
+  <%=l.select :content_format, options_for_select(Lesson.content_formats.keys)%>
   <%= l.hidden_field :_destroy %>
   <%= link_to "remove lesson"  , "#", class: "remove_fields" %>
 </fieldset>
+
