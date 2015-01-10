@@ -1,21 +1,55 @@
+<div class="cover" style="background-image:url(<%= @board.image_url %>)">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h1><%= @board.title %></h1>
+        <%= @board.category %><br>
+        <%= @board.level %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="userCover">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <%= image_tag Gravatar.new(current_user.email).image_url if current_user%><br>
+        <p><%= "Creado por #{@board.user.name} #{@board.user.lastname}"%></p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h3><%= @board.description %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- <p>
   <strong>Title:</strong>
   <%= @board.title %>
 </p>
-
-<p>
+ -->
+<!-- <p>
   <strong>Description:</strong>
   <%= @board.description %>
-</p>
+</p> -->
 
 <p>
   <strong>Image url:</strong>
   <%= @board.image_url %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Category:</strong>
   <%= @board.category %>
 </p>
@@ -23,12 +57,12 @@
 <p>
   <strong>Level:</strong>
   <%= @board.level %>
-</p>
-
+</p> -->
+<!-- 
 <p>
   <strong>User:</strong>
-  <%= "#{@board.user.name} #{@board.user.lastname}"%>
-</p>
+  <%#= "#{@board.user.name} #{@board.user.lastname}"%>
+</p> -->
 
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>
