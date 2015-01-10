@@ -31,10 +31,15 @@
     <%= f.label :level %><br>
     <%= f.text_field :level %>
   </div>
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
-  </div>
+  </div>  esto debe pertenecer a current_user user_signed_in-->
+    <%= f.fields_for :lessons, @board.lessons do |lesson| %>
+      <% render 'lesson_fields', :l => lesson %>
+    <% end %>
+   <!--  <%#= link_to_add_fields "Add_lesson", f, :lessons %>
+ -->
   <div class="actions">
     <%= f.submit %>
   </div>
