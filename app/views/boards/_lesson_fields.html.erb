@@ -3,8 +3,8 @@
   <%= l.text_field :title %>
   <%= l.label :description, "description" %>
   <%= l.text_field :description %>
-  <%= l.label :description, "description" %>
-  <%= l.text_field :description %>
-  <%= l.label :content_type, "content_type" %>
-  <%= l.text_field :content_type %>
+  <%= l.label :content_format, "content_format" %>
+  <%= l.text_field :content_format %>
+  <%= l.hidden_field :_destroy %>
+  <%= link_to "remove lesson"  , "#", class: "remove_fields" %>
 </fieldset>

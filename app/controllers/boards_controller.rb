@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
   # GET /boards/new
   def new
     @board = Board.new
+    2.times {@board.lessons.build}
   end
 
   # GET /boards/1/edit
