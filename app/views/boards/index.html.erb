@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<% if user_signed_in? %>
-  <li><%= current_user.username %></li>
-  <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-<!--   <li><%#= image_tag Gravatar.new(current_user.email).image_url if current_user%></li> -->
-  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-<% else %>
-  <li><%= link_to "Sign in", new_user_session_path %></li>
-  <li><%= link_to "Sign up", new_user_registration_path %></li>
-<% end %>
-
 <h1>Listing Boards</h1>
 
 <table>
