@@ -14,6 +14,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
+
     @lesson = Lesson.new
   end
 
