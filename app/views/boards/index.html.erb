@@ -1,17 +1,6 @@
-<% if user_signed_in? %>
-  <li><%= image_tag Gravatar.new(current_user.email).image_url if current_user%></li>
-<% end %>
-
-
-<% if user_signed_in? %>
-  <%= link_to 'New Board', new_board_path, class: "btn btn-primary" %>
-
-  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-
-<% else %>
-  <li><%= link_to "Sign in", new_user_session_path %></li>
-  <li><%= link_to "Sign up", new_user_registration_path %></li>
-<% end %>
+<%# if user_signed_in? %>
+  
+<%# end %>
 
 <h1>Check out some Boards</h1>
 
