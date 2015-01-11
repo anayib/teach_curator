@@ -9,9 +9,17 @@
   </div> 
 
   <div class="navbar-collapse collapse navbar-inverse-collapse">
-    <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-    </form>
+    <div class="input-group" style="margin-top: 9px" >
+      <%= form_tag(boards_path, :method => "get", id: "search-form",class: "input-group-btn") do %>
+        <div class="form-group">
+
+                <%= text_field_tag :keyword, params[:keyword], autofocus: true, placeholder: "escribe palabras relacionadas con lo que quieres aprender", class: "form-control", style: "width: 92%" %>
+
+                <%= submit_tag("buscar", class: "btn btn-default") %>
+        </div>
+
+      <% end %>
+    </div>
 
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
