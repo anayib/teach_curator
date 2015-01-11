@@ -22,37 +22,47 @@
   </div>
 </div>
 
+<% @board.lessons.each do |lesson| %>
+  <div class="container">
+    <div class="row">
+      <div class="lessons panel panel-default col-md-7 col-md-offset-2">
+        <div class="panel-body">
+          <% if @board.user == current_user %>
+            <div>
+              <%= link_to 'x', [@board,lesson], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <!-- <button type="button" class="close" aria-hidden="true">x</button> -->
+              <h3><strong><%= lesson.title %></strong></h3>
+            </div>
+          <% end %>
+          <%= lesson.description %>
+          <object width="400" height="400" data='<%= lesson.url %>'></object>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
+<%= form_for(@board) do |f| %>
+
+  <div class = "container" id="appendTip">
+    <h4>Create as many lessons as you need for this board</h4>
+
+
+<!--     <%= f.fields_for :lessons, @board.lessons do |lesson| %>
+      <% render 'lesson_fields', :l => lesson %>
+    <% end %> -->
+    <%= link_to_add_fields "Add lesson", f, :lessons %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<!-- <p>
-  <strong>Title:</strong>
-  <%= @board.title %>
-</p>
- -->
-<!-- <p>
-  <strong>Description:</strong>
-  <%= @board.description %>
-</p> -->
-
-<!-- <p>
-  <strong>Image url:</strong>
-  <%= @board.image_url %>
-</p> -->
-
-<!-- <p>
-  <strong>Category:</strong>
-  <%= @board.category %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @board.level %>
-</p> -->
-<!-- 
-<p>
-  <strong>User:</strong>
-  <%#= "#{@board.user.name} #{@board.user.lastname}"%>
-</p> -->
-
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+<div>
+  <%= link_to 'Edit', edit_board_path(@board) %> |
+  <%= link_to 'Back', boards_path %>
+</div>
