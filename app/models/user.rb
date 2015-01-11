@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :boards, :dependent => :destroy
 
-  validates :name, :last_name, :username, presence: true 
+  validates :name, :lastname, :username, presence: true 
   validates :email, :username, uniqueness: true
-  
+ 
 end
