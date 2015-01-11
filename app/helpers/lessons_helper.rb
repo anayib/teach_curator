@@ -9,7 +9,8 @@ module LessonsHelper
 
       thumbnail = LinkThumbnailer.generate(url)
       image = thumbnail.images.first.src.to_s
-      content_tag(:image, nil, src:image)
+      content_tag(:iframe, nil, src: image, style: "background-color: white")
+
   end
 end
 

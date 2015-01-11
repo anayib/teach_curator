@@ -66,27 +66,17 @@ LinkThumbnailer.configure do |config|
   # Note that LinkThumbnailer will only sort fetched images between each other.
   # Meaning that they could be a "better" image on the page.
   #
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   # config.image_limit = 1
-=======
-  # config.image_limit = 5
->>>>>>> add link_thumbnailer.rb to config/initializers/
-=======
-  # config.image_limit = 1
->>>>>>> Add link thumbnailer through url functinality
+
 
   # Whether you want LinkThumbnailer to return image size and type or not.
   # Setting this value to false will increase performance since for each images, LinkThumbnailer
   # does not have to fetch its size and type.
   #
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   config.image_stats = false
-=======
-  # config.image_stats = true
->>>>>>> add link_thumbnailer.rb to config/initializers/
-=======
-  config.image_stats = false
->>>>>>> Add link thumbnailer through url functinality
+
+
+
 end
