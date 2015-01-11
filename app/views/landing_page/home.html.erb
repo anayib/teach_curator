@@ -1,2 +1,26 @@
-<h1>LandingPage#home</h1>
-<p>Find me in app/views/landing_page/home.html.erb</p>
+<div class="row">
+  <%= image_tag "store.jpg" %>
+</div>
+<div class="container">
+  <div class="container container-fluid">
+    <div class="row">
+  
+      <div class="col-sm-8 col-md-8"></div>
+  
+      <div class="col-sm-4 col-md-4">
+        <%= render "devise/registrations/form" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= render "boards/xxx" %>
+  </div>
+</div>
+
+<div class="col-xs-6 col-sm-6 col-md-3">
+  <%= link_to "Sign Up Now", new_user_registration_path %>
+</div>
