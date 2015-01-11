@@ -31,7 +31,11 @@ LinkThumbnailer.configure do |config|
 
   # List of attributes you want LinkThumbnailer to fetch on a website.
   #
+
   config.attributes = [:images]
+
+  # config.attributes = [:title, :images, :description, :videos, :favicon]
+
 
   # List of procedures used to rate the website description. Add you custom class
   # here. Note that the order matter to compute the score. See wiki for more details
@@ -61,11 +65,19 @@ LinkThumbnailer.configure do |config|
   # Note that LinkThumbnailer will only sort fetched images between each other.
   # Meaning that they could be a "better" image on the page.
   #
+<<<<<<< HEAD
   # config.image_limit = 1
+=======
+  # config.image_limit = 5
+>>>>>>> add link_thumbnailer.rb to config/initializers/
 
   # Whether you want LinkThumbnailer to return image size and type or not.
   # Setting this value to false will increase performance since for each images, LinkThumbnailer
   # does not have to fetch its size and type.
   #
+<<<<<<< HEAD
   config.image_stats = false
+=======
+  # config.image_stats = true
+>>>>>>> add link_thumbnailer.rb to config/initializers/
 end
