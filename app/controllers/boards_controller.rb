@@ -5,7 +5,8 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    #@boards = Board.all
+    @boards = Board.search(params[:keyword])
   end
 
   # GET /boards/1
@@ -77,7 +78,7 @@ class BoardsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
 
-      params.require(:board).permit(:title, :description, :image_url, :category, :level, :user_id, lessons_attributes: [:id, :title, :description, :content_format, :_destroy, :board_id, :url])
+      params.require(:board).permit(:title, :description, :image_url, :category, :level, :user_id, :search, lessons_attributes: [:id, :title, :description, :content_format, :_destroy, :board_id, :url])
 
     end
 end
