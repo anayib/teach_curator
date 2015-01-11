@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.cta-title {
+  font-weight: 500;
+}
+
 .lessons {
   margin-top: 50px;
   background-color: #E5E4E2;
@@ -33,4 +37,8 @@
 .lessons input {
   background-color: #E5E4E2;
   border: 0px;
+}
+
+.margin-top {
+  margin-top: 50px;
 }
