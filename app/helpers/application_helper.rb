@@ -7,4 +7,7 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "Add_lesson", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+
+
 end

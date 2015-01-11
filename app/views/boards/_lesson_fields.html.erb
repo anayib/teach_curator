@@ -3,18 +3,32 @@
     <div class="lessons panel panel-default col-md-7 col-md-offset-2">
       <div class="panel-body">
 
-<fieldset class="form-group lesson">
-  <%= l.text_field :title, placeholder: "title", class: "form-control" %><br>
-  <%= l.text_field :description, placeholder:"description", class:"form-control" %><br>
-  <div class="form-group">
-    <%= l.label :content_format, "content_format"%>
-    <%=l.select :content_format, options_for_select(Lesson.content_formats.keys), class: "form-control" %><br>
-  </div>
-  <%= l.text_field :url, placeholder: "url of your content", class: "form-control" %><br>
-  <%= l.hidden_field :_destroy %>
-  <%= link_to "remove lesson"  , "#", class: "remove_fields" %>
-</fieldset>
-
+        <fieldset class="form-group lesson">
+          <%= l.text_field :title, placeholder: "title", class: "form-control" %><br>
+          <%= l.text_field :description, placeholder:"description", class:"form-control" %><br>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+              <%= l.label :content_format, "select"%>
+              <%=l.select :content_format, options_for_select(Lesson.content_formats.keys), class: "form-control" %><br>
+              </div>
+              <div class="col-md-8">
+               <h4><strong>Website Preview:</strong> </h4>
+                  <p>Add a preview of a website</p> <hr>
+                <h4><strong>YouTube Video:</strong></h4>
+                  <p>Add a video from YouTube</p> <hr>
+                <h4><strong>Link to Website:</strong></h4>
+                  <p>Add an image from a website and crete a link to it</p>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+          </div>
+          <%= l.text_field :url, placeholder: "url of your content", class: "form-control" %><br>
+          <%= l.hidden_field :_destroy %>
+          <%= link_to "remove lesson"  , "#", class: "remove_fields" %>
+        </fieldset>
+        <%= l.submit class: "btn btn-success" %>
       </div>
     </div>
   </div>
