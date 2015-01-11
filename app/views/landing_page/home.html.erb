@@ -1,5 +1,4 @@
 <div class="row">
-  <%= image_tag "store.jpg" %>
 </div>
 <div class="container">
   <div class="container container-fluid">
@@ -8,7 +7,9 @@
       <div class="col-sm-8 col-md-8"></div>
   
       <div class="col-sm-4 col-md-4">
-        <%= render "devise/registrations/form" %>
+        <% unless user_signed_in? %>
+          <%= render "devise/registrations/form" %>
+        <% end %>
       </div>
 
     </div>
@@ -17,10 +18,12 @@
 
 <div class="container">
   <div class="row">
-    <%= render "boards/xxx" %>
+    <%= render "boards/partial_boards" %>
   </div>
 </div>
 
 <div class="col-xs-6 col-sm-6 col-md-3">
-  <%= link_to "Sign Up Now", new_user_registration_path %>
+  <% unless user_signed_in? %>
+    <%= link_to "Sign Up Now", new_user_registration_path %>
+  <% end %>
 </div>
