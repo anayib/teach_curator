@@ -8,4 +8,6 @@ class Board < ActiveRecord::Base
   validates :title, :description, :image_url, :level, presence: true
   validates_format_of :image_url, :with => URI.regexp(['http', 'https']) 
 
+  scope :search, ->(keyword){joins(:lessons).where("lessons.title LIKE :value OR lessons.description LIKE :value OR boards.title LIKE :value OR boards.description LIKE :value", value: "%#{keyword}%") if keyword.present?}
+
 end
