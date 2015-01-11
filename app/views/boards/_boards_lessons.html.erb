@@ -1,23 +1,23 @@
-<% @boards.each do |board| %>
-  <div class=row style=  "margin: 60px; text-align: left;">
+<%# @boards.each do |board| %>
+  <!-- <div class=row style=  "margin: 60px; text-align: left;">
     <div class="col-sm-6 col-md-10" style:>
-        <h4><%=board.title %></h4>
-        <p> <small> <em> <%=board.description%></small></em></p>
-        <%= link_to"check board", board, class: "btn btn-info btn-small", style: "color:white"%>
+        <h4><%#=board.title %></h4>
+   --><!--       <p> <small> <em> <%#=board.description%></small></em></p>
+        <%#= link_to"check board", board, class: "btn btn-info btn-small", style: "color:white"%>
     </div>
     <div class="col-sm-6 col-md-2">
-        <% board.lessons.each do |lesson| %>
+       -->  <%# board.lessons.each do |lesson| %>
 
         <!-- si es imagen -->
         <!-- <object width="420" height="315"
-          data='<%=lesson.url%>'>
+          data='<%#=lesson.url%>'>
         </object> -->
 
         <!-- si es video youtube -->
 
         <%#= embed(lesson.url)%>
 
-        <%= thumbnailScrap(lesson.url) %>
+       <!--  <%#= thumbnailScrap(lesson.url) %> -->
 
 
 
@@ -25,7 +25,7 @@
           <!-- <div>
             <p>curated by- <%#= lesson.title %> - </p>
           </div> -->
-        <% end -%>
+<!--         <#% end -%>
     </div>
   </div>
-<% end %>
+<#% end %> -->

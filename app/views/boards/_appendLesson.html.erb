@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="container col-md-1"></div>
+  <div class="lessons panel panel-default col-md-7 col-md-offset-1">
+    <div class="panel-body">
+      <% if @board.user == current_user %>
+        <div class="container col-sm-12 col-md-12">
+          <div class="close">
+          <%= link_to 'x', [@board,lesson], method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <h3><strong><%= lesson.title %></strong></h3>
+        </div>
+      <% end %>
+      
+      <div class="col-md-5">
+        <p><%= lesson.description %></p>
+      </div>
+      <div class="col-md-7">
+        <object width="300" height="auto" data='<%= lesson.url %>'></object>
+      </div>
+    </div>
+  </div>
+
+</div>

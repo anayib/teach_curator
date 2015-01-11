@@ -11,27 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="container">
+  <div class="row">
+    <div class="lessons panel panel-default col-md-7 col-md-offset-2">
+      <div class="panel-body">
+
+<div class="form-group lesson">
+  <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.text_field :image_url, class: "form-control" %>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.text_field :category, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :level %><br>
-    <%= f.text_field :level %>
+    <%= f.text_field :level, class: "form-control" %>
 
   </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
  <div class = "container" id="appendTip">
     <h4>Create as many lessons as you need for this board</h4>
@@ -40,12 +54,13 @@
     <%= f.fields_for :lessons, @board.lessons do |lesson| %>
       <% render 'lesson_fields', :l => lesson %>
     <% end %>
-    <%= link_to_add_fields "Add lesson", f, :lessons %>
-
+    <div style="; font-size: 20px">
+      <%= link_to_add_fields "Add lesson", f, :lessons %>
+    </div>
   </div>
   <br>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container col-md-offset-4" style="margin-bottom: 30px">
+    <%= f.submit class: "btn btn-primary", style: "; padding: 15px; font-size: 20px" %>
   </div>
 <% end %>

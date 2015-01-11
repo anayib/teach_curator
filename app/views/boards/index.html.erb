@@ -42,5 +42,52 @@
 <% if user_signed_in? %>
   <%= link_to 'New Board', new_board_path, class: "btn btn-primary" %>
 <% end %>
+=======
+  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 
+  <li><%= link_to 'New Board', new_board_path, class: "btn btn-primary" %></li>
+<% else %>
+  <li><%= link_to "Sign in", new_user_session_path %></li>
+  <li><%= link_to "Sign up", new_user_registration_path %></li>
+<% end %>
 
+<h1>Check out some Boards</h1>
+
+<div id="boards" class="container col-sm-offset-2 col-md-offset-2 transitions-enabled">
+<% @boards.each do |board| %>
+  <!-- <div class="container container-fluid"> -->
+    <!-- <div class="row"> -->
+      <div class="lessons box panel panel-default col-sm-5 col-md-3">
+        <div class="panel-body">
+          
+          <div class="container col-sm-12 col-md-12">
+            <% if board.user == current_user %>
+              <div class="close">
+              <%= link_to 'x', board, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
+            <h3><strong><%= board.title %></strong></h3>
+          </div>
+          
+          <div class="col-sm-12 col-md-12">
+            <div class="row col-sm-offset-1 col-xs-offset-3">
+              <object width="150" height="auto" style="position: center" data='<%= board.image_url %>'></object></div>
+            <div class="row">
+              <p><%= board.description %></p>
+            </div>
+            <div class="row">
+              <%= link_to 'Show', board %> 
+              <% if board.user == current_user %>
+              | <%= link_to 'Edit', edit_board_path(board) %>
+              | <%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- </div -->
+  <!-- </div> -->
+
+<% end %>
+</div>
