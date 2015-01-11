@@ -1,0 +1,29 @@
+<% @boards.each do |board| %>
+  <div class=row style=  "margin: 60px; text-align: left;">
+    <div class="col-sm-6 col-md-10" style:>
+        <h4><%=board.title %></h4>
+        <p> <small> <em> <%=board.description%></small></em></p>
+        <%= link_to"check board", board, class: "btn btn-info btn-small", style: "color:white"%>
+    </div>
+    <div class="col-sm-6 col-md-2">
+        <% board.lessons.each do |lesson| %>
+
+        <!-- si es imagen -->
+        <!-- <object width="420" height="315"
+          data='<%=lesson.url%>'>
+        </object> -->
+
+        <!-- si es video youtube -->
+
+        <%= embed(lesson.url)%>
+
+
+
+         <!--  <%#= image_tag author.image.url(:thumb), size: "100x100", style: "border-radius: 50%; disp;" %> -->
+          <!-- <div>
+            <p>curated by- <%#= lesson.title %> - </p>
+          </div> -->
+        <% end -%>
+    </div>
+  </div>
+<% end %>
