@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
   <li><%= current_user.username %></li>
   <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-<!--   <li><%#= image_tag Gravatar.new(current_user.email).image_url if current_user%></li> -->
+  <li><%= image_tag Gravatar.new(current_user.email).image_url if current_user%></li>
   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 <% else %>
   <li><%= link_to "Sign in", new_user_session_path %></li>
@@ -30,7 +30,7 @@
       <tr>
         <td><%= board.title %></td>
         <td><%= board.description %></td>
-        <td><%= board.image_url %></td>
+        <td><%= image_tag board.image_url, size: "1000" %></td>
         <td><%= board.category %></td>
         <td><%= board.level %></td>
         <td><%= "#{board.user.name} #{board.user.lastname}" %></td>
