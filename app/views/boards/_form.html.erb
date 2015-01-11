@@ -25,8 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+     <%=f.select :category, options_for_select(Board.categories.keys), class: "form-control" %>
   </div>
+
   <div class="field">
     <%= f.label :level %><br>
     <%= f.text_field :level %>
