@@ -4,6 +4,7 @@ class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
   def index
+
     @lessons = Lesson.all
   end
 
@@ -14,6 +15,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
+
     @lesson = Lesson.new
   end
 
@@ -54,9 +56,10 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   # DELETE /lessons/1.json
   def destroy
+  #  @board = current_user.boards.find(params[:board_id])
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to board_path(params[:board_id]), notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:title, :description, :content_format, :board_id)
+      params.require(:lesson).permit(:title, :description, :content_format, :board_id, :url)
     end
 end

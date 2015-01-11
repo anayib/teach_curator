@@ -1,30 +1,44 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    #@boards = Board.all
+    @boards = Board.search(params[:keyword])
   end
 
   # GET /boards/1
   # GET /boards/1.json
   def show
+    @board = Board.find(params[:id])
   end
 
   # GET /boards/new
   def new
-    @board = Board.new
+
+    @board = current_user.boards.build
+
+    2.times {@board.lessons.build}
+
   end
 
   # GET /boards/1/edit
   def edit
+    @board = Board.find(params[:id])
+    if current_user == @board.user 
+      render :edit
+    else
+      redirect_to boards_path
+    end
   end
 
   # POST /boards
   # POST /boards.json
   def create
-    @board = Board.new(board_params)
+    @board = current_user.boards.build(board_params)
+    @board.save
 
     respond_to do |format|
       if @board.save
@@ -69,6 +83,8 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :description, :image_url, :category, :level, :user_id)
+
+      params.require(:board).permit(:title, :description, :image_url, :category, :search, :level, :user_id, lessons_attributes: [:id, :title, :description, :content_format, :_destroy, :board_id, :url])
+
     end
 end
