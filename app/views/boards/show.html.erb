@@ -25,17 +25,24 @@
 <% @board.lessons.each do |lesson| %>
   <div class="container">
     <div class="row">
-      <div class="lessons panel panel-default col-md-7 col-md-offset-2">
+      <div class="container col-md-1"></div>
+      <div class="lessons panel panel-default col-md-7 col-md-offset-1">
         <div class="panel-body">
           <% if @board.user == current_user %>
-            <div>
+            <div class="container col-sm-12 col-md-12">
+              <div class="close">
               <%= link_to 'x', [@board,lesson], method: :delete, data: { confirm: 'Are you sure?' } %>
-              <!-- <button type="button" class="close" aria-hidden="true">x</button> -->
+              </div>
               <h3><strong><%= lesson.title %></strong></h3>
             </div>
           <% end %>
-          <%= lesson.description %>
-          <object width="400" height="400" data='<%= lesson.url %>'></object>
+          
+          <div class="col-md-5">
+            <p><%= lesson.description %></p>
+          </div>
+          <div class="col-md-7">
+            <object width="300" height="300" data='<%= lesson.url %>'></object>
+          </div>
         </div>
       </div>
 
@@ -43,21 +50,29 @@
   </div>
 <% end %>
 
-<%= form_for(@board) do |f| %>
+<% if @board.user == current_user %>
+  <%= form_for(@board) do |f| %>
 
-  <div class = "container" id="appendTip">
-    <h4>Create as many lessons as you need for this board</h4>
+    <div class = "container" id="appendTip">
+      <h4>Create as many lessons as you need for this board</h4>
 
-
-<!--     <%= f.fields_for :lessons, @board.lessons do |lesson| %>
-      <% render 'lesson_fields', :l => lesson %>
-    <% end %> -->
-    <%= link_to_add_fields "Add lesson", f, :lessons %>
-    <div class="actions">
-      <%= f.submit %>
+      <%#= f.fields_for :lessons, @board.lessons do |lesson| %>
+        <%# render 'lesson_fields', :l => lesson %>
+      <%# end %> 
+      <!-- <div class="form-group">
+        <div class="col-lg-10"> -->
+          <!-- <div class="btn btn-primary"> -->
+            <%= link_to_add_fields "Add lesson", f, :lessons %>
+          <!-- </div> -->
+          
+          <!-- <div class="actions"> -->
+          <%= f.submit class:"btn btn-success" %>
+          <!--  </div> -->
+        <!-- </div>
+      </div> -->
     </div>
-  </div>
 
+  <% end %>
 <% end %>
 
 <p id="notice"><%= notice %></p>

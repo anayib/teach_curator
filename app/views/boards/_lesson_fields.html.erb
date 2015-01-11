@@ -1,13 +1,22 @@
-<fieldset>
-  <%= l.label :title, "title" %>
-  <%= l.text_field :title %>
-  <%= l.label :description, "description" %>
-  <%= l.text_field :description %>
-  <%= l.label :content_format, "content_format" %>
-  <%=l.select :content_format, options_for_select(Lesson.content_formats.keys)%>
-  <%=l.label :url, "url of your content" %>
-  <%= l.text_field :url %>
+<div class="container">
+  <div class="row">
+    <div class="lessons panel panel-default col-md-7 col-md-offset-2">
+      <div class="panel-body">
+
+<fieldset class="form-group lesson">
+  <%= l.text_field :title, placeholder: "title", class: "form-control" %><br>
+  <%= l.text_field :description, placeholder:"description", class:"form-control" %><br>
+  <div class="form-group">
+    <%= l.label :content_format, "content_format"%>
+    <%=l.select :content_format, options_for_select(Lesson.content_formats.keys), class: "form-control" %><br>
+  </div>
+  <%= l.text_field :url, placeholder: "url of your content", class: "form-control" %><br>
   <%= l.hidden_field :_destroy %>
   <%= link_to "remove lesson"  , "#", class: "remove_fields" %>
 </fieldset>
+
+      </div>
+    </div>
+  </div>
+</div>
 
