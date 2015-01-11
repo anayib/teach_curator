@@ -25,6 +25,12 @@ class BoardsController < ApplicationController
 
   # GET /boards/1/edit
   def edit
+    @board = Board.find(params[:id])
+    if current_user == @board.user 
+      render :edit
+    else
+      redirect_to boards_path
+    end
   end
 
   # POST /boards
