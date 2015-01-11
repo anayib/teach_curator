@@ -1,0 +1,4 @@
+$(document).on "ready page:load", ->
+  $('#submitLesson').on 'click', (event) ->
+    event.preventDefault()
+    $('#results').append('<div class="container"><%=j render "appendLesson"%></div>');

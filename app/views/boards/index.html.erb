@@ -5,49 +5,58 @@
   <li><%= link_to "Account Settings", edit_user_registration_path %></li>
   <li><%= image_tag Gravatar.new(current_user.email).image_url if current_user%></li>
   <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+
+  <li><%= link_to 'New Board', new_board_path, class: "btn btn-primary" %></li>
 <% else %>
   <li><%= link_to "Sign in", new_user_session_path %></li>
   <li><%= link_to "Sign up", new_user_registration_path %></li>
 <% end %>
 
-<h1>Listing Boards</h1>
+<h1>Check out some Boards</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Category</th>
-      <th>Level</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="boards" class="container col-sm-offset-2 col-md-offset-2 transitions-enabled">
+<% @boards.each do |board| %>
+  <!-- <div class="container container-fluid"> -->
+    <!-- <div class="row"> -->
+      <div class="lessons box panel panel-default col-sm-5 col-md-3">
+        <div class="panel-body">
+          
+          <div class="container col-sm-12 col-md-12">
+            <% if board.user == current_user %>
+              <div class="close">
+              <%= link_to 'x', board, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
+            <h3><strong><%= board.title %></strong></h3>
+          </div>
+          
+          <div class="col-sm-12 col-md-12">
+            <div class="row col-sm-offset-1 col-xs-offset-3">
+              <object width="150" height="auto" style="position: center" data='<%= board.image_url %>'></object></div>
+            <div class="row">
+              <p><%= board.description %></p>
+            </div>
+            <div class="row">
+              <%= link_to 'Show', board %> 
+              <% if board.user == current_user %>
+              | <%= link_to 'Edit', edit_board_path(board) %>
+              | <%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <tbody>
-    <% @boards.each do |board| %>
-      <tr>
-        <td><%= board.title %></td>
-        <td><%= board.description %></td>
-        <td><%= image_tag board.image_url, size: "1000" %></td>
-        <td><%= board.category %></td>
-        <td><%= board.level %></td>
-        <td><%= "#{board.user.name} #{board.user.lastname}" %></td>
-        <td><%= link_to 'Show', board %></td>
-        <% if board.user == current_user %>
-          <td><%= link_to 'Edit', edit_board_path(board) %></td>
-          <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <!-- </div -->
+  <!-- </div> -->
+
+<% end %>
+</div>
+
+
 
 <br>
 
-
-<%= link_to 'New Board', new_board_path, class: "btn btn-primary" %>
 
 
 
