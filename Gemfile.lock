@@ -206,12 +206,9 @@ DEPENDENCIES
   gravatar-ultimate
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
-  link_thumbnailer
-=======
   jquery-turbolinks
+  link_thumbnailer
   masonry-rails
->>>>>>> indexBoards
   pg
   rails (= 4.2.0)
   sass-rails (~> 5.0)
